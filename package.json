@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Leocano/books-api/issues"
   },
-  "homepage": "https://github.com/Leocano/books-api#readme"
+  "homepage": "https://github.com/Leocano/books-api#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
