@@ -1,4 +1,5 @@
-const Book = require('../models/Book');
+const Book = require('../models/Book')
+const rp = require('request-promise')
 
 exports.create = (req, res) => {
   const book = new Book();
@@ -21,4 +22,15 @@ exports.view = (req, res) => {
     }
     res.json(book)
   })
+}
+
+exports.search = (req, res) => {
+  const url = 'https://kotlinlang.org/docs/books.html'
+  rp(url)
+    .then((html) => {
+      res.send(html)
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 }
