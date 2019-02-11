@@ -16,10 +16,27 @@ describe('BookModel', () => {
     })
   })
 
+  it('should create book', () => {
+    const book = new Book()
+    book.title = 'Hitchhiker\'s Guide to the Galaxy';
+    book.description = 'Amazing adventure';
+    book.isbn = '17364946723';
+    book.language = 'EN';
+    book.save((err) => {
+      assert.equal(err, null)
+    })
+  })
+
   it('should not create book with empty parameters', () => {
     const book = new Book()
     book.save((err) => {
       assert.notEqual(err, null);
+    })
+  })
+
+  after((done) => {
+    mongoose.connection.db.dropCollection('books', () => {
+      done()
     })
   })
 })
