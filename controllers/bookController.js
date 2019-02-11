@@ -13,3 +13,12 @@ exports.create = (req, res) => {
         res.json(book);
     });
 };
+
+exports.view = (req, res) => {
+    Book.findById(req.params.book_id, (err, book) => {
+        if (err) {
+            res.send(err)
+        }
+        res.json(book)
+    })
+}
