@@ -19,8 +19,4 @@ const bookSchema = mongoose.Schema({
     }
 })
 
-const Book = module.exports = mongoose.model('book', bookSchema);
-
-module.exports.get = function (callback, limit) {
-    Book.find(callback).limit(limit);
-}
+module.exports = mongoose.model('book', bookSchema);
