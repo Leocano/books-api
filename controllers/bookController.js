@@ -1,16 +1,15 @@
 const Book = require('../models/Book');
 
-exports.index = (req, res) => {
-    Book.get((err, books) => {
+exports.create = (req, res) => {
+    const book = new Book();
+    book.title = req.body.title;
+    book.description = req.body.description;
+    book.isbn = req.body.isbn;
+    book.language = req.body.language;
+    book.save((err) => {
         if (err) {
-            res.json({
-                status: "error",
-                message: err,
-            });
+            res.json(err);
         }
-        res.json({
-            message: "Books retrieved",
-            data: books
-        });
+        res.json(book);
     });
 };

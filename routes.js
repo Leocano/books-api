@@ -1,9 +1,6 @@
 const router = require('express').Router()
+const bookController = require('./controllers/bookController')
 
-router.get('/', (req, res) => {
-    res.json({
-        book: 'The Hitchhikers guide to the galaxy'
-    })
-})
+router.post('/book', bookController.create)
 
 module.exports = router
