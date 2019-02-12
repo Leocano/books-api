@@ -2,7 +2,7 @@ const assert = require('assert')
 const mongoose = require('mongoose')
 const Book = require('../../models/Book')
 
-describe('BookModel', () => {
+describe('Book Model', () => {
   before((done) => {
     mongoose.connect('mongodb://localhost:27017/booksTest')
     mongoose.connection
